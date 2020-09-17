@@ -15,6 +15,7 @@ Ce test se présente sous la forme d'une application simple, permettant de gén�
 	* de ne saisir aucun choix de genre.
 1. Dans le tableau de résultats, ne plus afficher Male / Female, mais Homme / Femme (par exemple en utilisant un `Pipe`).
 1. Le bouton « À propos » ne fonctionne pas, implémenter sa navigation.
+1. Si le coeur vous en dit, vous pouvez essayer d'améliorer l'ergonomie (UX et ou /UI) du site sur un aspect de votre choix.
 
 _Il est demandé en outre que le code produit soit industriel, c'est-à-dire qu'il respecte les conventions de code et que les tests unitaires n'échouent pas.
 
@@ -28,4 +29,3 @@ Il est possible d'utiliser les scripts préconfigurés `npm` pour démarrer l'ap
 
 
 _Ce projet a été généré au moyen d'[Angular CLI](https://github.com/angular/angular-cli) version 7.2.1._
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/angular-cpdkyg)
