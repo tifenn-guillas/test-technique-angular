@@ -18,6 +18,7 @@ Ce test se présente sous la forme d'une application simple, permettant de gén�
 1. Si le coeur vous en dit, vous pouvez essayer d'améliorer l'ergonomie (UX et ou /UI) du site sur un aspect de votre choix.
 
 _Il est demandé en outre que le code produit soit industriel, c'est-à-dire qu'il respecte les conventions de code et que les tests unitaires n'échouent pas.
+N'hésitez pas à utilise vos bonnes pratiques habituelles ... à améliorer le code en terme de lisibilité et même en terme de performance.
 
 ## Démarrage de l'application 
 
