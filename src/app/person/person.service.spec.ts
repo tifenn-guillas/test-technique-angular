@@ -53,7 +53,7 @@ describe("PersonService", () => {
 		const persons$ = service.getPersons(DEFAULT_CONFIG);
 		persons$.subscribe(persons => {
 			expect(persons).toBeDefined();
-			expect(persons.length).toBe(1);
+			expect(persons.length).toBe(3);
 			expect(persons.map(p => p.id)).toEqual([1, 2, 3]);
 		});
 
