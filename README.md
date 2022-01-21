@@ -1,3 +1,5 @@
+[![CI](https://github.com/tifenn-guillas/test-technique-angular/actions/workflows/main.yml/badge.svg)](https://github.com/tifenn-guillas/test-technique-angular/actions/workflows/main.yml)
+
 # Test technique de recrutement orienté Angular
 
 Ce test technique a pour objectif de valider les compétences du Candidat dans le domaine du front, Angular compris.

@@ -1,0 +1,35 @@
+name: CI
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+          
+      - name: Install angular cli
+        run: yarn global add @angular/cli
+
+      - name: Install dependencies
+        run: yarn install
+        
+      - name: Run unit tests
+        run: ng test --no-watch
+        
+      - name: Build dist
+        run: ng build
+
+      - name: Publish archive dist
+        uses: actions/upload-artifact@v2
+        with:
+            name: dist
+            path: dist/

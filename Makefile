@@ -35,7 +35,7 @@ logs:
 install:
 	@docker run --init -it --rm --user $(UID):$(GID) \
 	-v $(CURDIR):/project \
-	-w /project node:16-slim yarn install
+	-w /project node:14-slim yarn install
 
 build:
 	@docker-compose exec client ng build
