@@ -6,7 +6,7 @@
     },
     "compilerOptions": {
         "moduleResolution": "node",
-        "outDir": "../../../dist/out-tsc/apps",
+        "outDir": "../../../dist/out-tsc/apps"
     },
     "include": [
         "**/*.ts"
