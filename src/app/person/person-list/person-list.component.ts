@@ -10,14 +10,12 @@ import { PersonService } from "../person.service";
 	styleUrls: ["./person-list.component.scss"]
 })
 export class PersonListComponent {
-
 	displayedColumns: string[] = ["id", "firstName", "lastName", "gender", "email"];
 	dataSource: Observable<Person[]> = EMPTY;
 
-	constructor(private personService: PersonService) {
-	}
+	constructor(private personService: PersonService) { }
 
-	generate(config: GenerationConfig) {
+	generate(config: GenerationConfig): void {
 		this.dataSource = this.personService.getPersons(config);
 	}
 }
