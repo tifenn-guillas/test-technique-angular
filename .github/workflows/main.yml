@@ -65,7 +65,7 @@ jobs:
 
             - name: Build dist
               run: |
-                  docker run -v dist:/project/dist ${{ env.DOCKER_IMAGE }} bash -c 'ng build --prod'
+                  docker run -v ${{ github.workspace }}/dist:/project/dist ${{ env.DOCKER_IMAGE }} bash -c 'ng build --prod'
 
             - name: Push production image
               uses: docker/build-push-action@v2
