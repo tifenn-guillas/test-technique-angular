@@ -16,4 +16,12 @@ ENV CHROME_BIN=chromium
 
 COPY . /project
 
+ARG APPLICATION_ENV='dev'
+
+ENV APPLICATION_ENV $APPLICATION_ENV
+RUN if [ "$APPLICATION_ENV" = "prod" ]; then \
+        yarn && \
+        echo "Settings done !" \
+    ; fi
+
 CMD ["bash"]

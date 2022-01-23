@@ -28,9 +28,9 @@ jobs:
                   file: Dockerfile
                   load: true
 
-#            - name: Run tests
-#              run: |
-#                  docker run ${{ env.DOCKER_IMAGE }} bash -c 'yarn && ng test --no-watch'
+            - name: Run tests
+              run: |
+                  docker run ${{ env.DOCKER_IMAGE }} bash -c 'yarn && ng test --no-watch'
 
     building:
         runs-on: ubuntu-latest
@@ -60,10 +60,12 @@ jobs:
                   context: .
                   file: Dockerfile
                   load: true
+                  build-args: |
+                      APPLICATION_ENV=prod
 
-#            - name: Build dist
-#              run: |
-#                  docker run -v dist:/project/dist ${{ env.DOCKER_IMAGE }} bash -c 'yarn && ng build --prod'
+            - name: Build dist
+              run: |
+                  docker run -v dist:/project/dist ${{ env.DOCKER_IMAGE }} bash -c 'ng build --prod'
 
             - name: Push production image
               uses: docker/build-push-action@v2
