@@ -28,9 +28,9 @@ jobs:
                   file: Dockerfile
                   load: true
 
-            - name: Run tests
-              run: |
-                  docker run ${{ env.DOCKER_IMAGE }} bash -c 'yarn && ng test --no-watch'
+#            - name: Run tests
+#              run: |
+#                  docker run ${{ env.DOCKER_IMAGE }} bash -c 'yarn && ng test --no-watch'
 
     building:
         runs-on: ubuntu-latest
