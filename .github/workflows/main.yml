@@ -8,6 +8,7 @@ on:
 
 env:
     DOCKER_IMAGE: tifennguillas/test-technique-angular
+    BASE_HREF: test-technique-angular
 
 jobs:
     testing:
@@ -65,7 +66,7 @@ jobs:
 
             - name: Build dist
               run: |
-                  docker run -v ${{ github.workspace }}/dist:/project/dist ${{ env.DOCKER_IMAGE }} bash -c 'ng build --prod'
+                  docker run -v ${{ github.workspace }}/dist:/project/dist ${{ env.DOCKER_IMAGE }} bash -c 'ng build --prod --base-href /${{ env.BASE_HREF }}/'
 
             - name: Push production image
               uses: docker/build-push-action@v2
