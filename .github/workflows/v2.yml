@@ -70,9 +70,10 @@ jobs:
                   tags: |
                       ${{ env.DOCKER_IMAGE }}:${{ env.RELEASE_VERSION }}
                   push: true
+
             - name: GitHub Pages
-                  uses: crazy-max/ghaction-github-pages@v2.5.0
-                  with:
-                      build_dir: dist/
-                  env:
-                      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              uses: crazy-max/ghaction-github-pages@v2.5.0
+              with:
+                  build_dir: dist/
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
