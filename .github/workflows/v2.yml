@@ -30,7 +30,7 @@ jobs:
 
             - name: Run tests
               run: |
-                  docker run ${{ env.DOCKER_IMAGE }} ng test --no-watch
+                  docker run ${{ env.DOCKER_IMAGE }} cd /project && yarn && ng test --no-watch
 
     building:
         runs-on: ubuntu-latest
@@ -62,7 +62,7 @@ jobs:
 
             - name: Build dist
               run: |
-                  docker run -v ./dist:/project/dist ${{ env.DOCKER_IMAGE }} ng build --prod
+                  docker run -v ./dist:/project/dist ${{ env.DOCKER_IMAGE }} cd /project && yarn && ng build --prod
 
             - name: Push production image
               uses: docker/build-push-action@v2
