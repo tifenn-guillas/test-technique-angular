@@ -62,7 +62,7 @@ describe("PersonService", () => {
 		});
 
 		// Call to the resource `persons.json` is not real, only sample `PERSONS` is returned for fake
-		const getPersons = httpMock.expectOne("/assets/data/persons.json");
+		const getPersons = httpMock.expectOne("./assets/data/persons.json");
 		getPersons.flush(PERSONS);
 	});
 
@@ -76,7 +76,7 @@ describe("PersonService", () => {
 		});
 
 		// Call to the resource `persons.json` is not real, only sample `PERSONS` is returned for fake
-		const getPersons = httpMock.expectOne("/assets/data/persons.json");
+		const getPersons = httpMock.expectOne("./assets/data/persons.json");
 		getPersons.flush(PERSONS);
 	});
 
@@ -90,7 +90,7 @@ describe("PersonService", () => {
 		});
 
 		// Call to the resource `persons.json` is not real, only sample `PERSONS` is returned for fake
-		const getPersons = httpMock.expectOne("/assets/data/persons.json");
+		const getPersons = httpMock.expectOne("./assets/data/persons.json");
 		getPersons.flush(PERSONS);
 	});
 
@@ -104,7 +104,7 @@ describe("PersonService", () => {
 		});
 
 		// Call to the resource `persons.json` is not real, only sample `PERSONS` is returned for fake
-		const getPersons = httpMock.expectOne("/assets/data/persons.json");
+		const getPersons = httpMock.expectOne("./assets/data/persons.json");
 		getPersons.flush(PERSONS);
 	});
 });
