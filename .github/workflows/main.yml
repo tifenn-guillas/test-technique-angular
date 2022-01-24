@@ -61,8 +61,7 @@ jobs:
                   context: .
                   file: Dockerfile
                   load: true
-                  build-args: |
-                      APPLICATION_ENV=prod
+                  build_args: APPLICATION_ENV=prod
 
             - name: Build dist
               run: |
