@@ -2,9 +2,9 @@ name: Docker Image CI
 
 on:
     push:
-        branches: [ github-actions ]
+        branches: [ develop ]
     pull_request:
-        branches: [ github-actions ]
+        branches: [ develop ]
 
 env:
     DOCKER_IMAGE: tifennguillas/test-technique-angular
@@ -75,6 +75,7 @@ jobs:
                       ${{ env.DOCKER_IMAGE }}:latest
                       ${{ env.DOCKER_IMAGE }}:${{ env.RELEASE_VERSION }}
                   push: true
+                  context: .
 
             - name: GitHub Pages
               uses: crazy-max/ghaction-github-pages@v2.5.0
