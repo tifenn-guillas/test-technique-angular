@@ -12,7 +12,7 @@ export class PersonService {
 	constructor(private http: HttpClient) { }
 
 	getPersons(config: GenerationConfig): Observable<Person[]> {
-		return this.http.get<Person[]>("/assets/data/persons.json").pipe(
+		return this.http.get<Person[]>("./assets/data/persons.json").pipe(
 			map( response => {
 				if (config.female && config.male) {
 					return response.slice(0, config.count);

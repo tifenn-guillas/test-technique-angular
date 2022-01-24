@@ -9,6 +9,7 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { PersonGeneratorComponent } from "../person-generator/person-generator.component";
 
 import { PersonListComponent } from "./person-list.component";
+import { TranslateGenderPipe } from './translate-gender.pipe';
 
 describe("PersonListComponent", () => {
 	let component: PersonListComponent;
@@ -18,7 +19,8 @@ describe("PersonListComponent", () => {
 		TestBed.configureTestingModule({
 			declarations: [
 				PersonListComponent,
-				PersonGeneratorComponent
+				PersonGeneratorComponent,
+				TranslateGenderPipe
 			],
 			imports: [
 				MatTableModule,
