@@ -24,15 +24,12 @@ describe("PersonGeneratorComponent", () => {
 				ReactiveFormsModule,
 				NoopAnimationsModule
 			]
-		})
-			.compileComponents();
-	}));
+		}).compileComponents();
 
-	beforeEach(() => {
 		fixture = TestBed.createComponent(PersonGeneratorComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
-	});
+	}));
 
 	it("should create the component", () => {
 		expect(component).toBeTruthy();

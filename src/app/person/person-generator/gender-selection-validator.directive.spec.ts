@@ -1,4 +1,4 @@
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { GenderSelectionValidator } from './gender-selection-validator.directive';
 
 describe('GenderSelectionValidator', () => {

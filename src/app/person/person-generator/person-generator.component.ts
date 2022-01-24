@@ -1,6 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { FormBuilder, FormGroup, FormControl, ValidationErrors, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Component, EventEmitter, Output } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+
 import { GenerationConfig } from "../generation-config";
 import { GenderSelectionValidator } from './gender-selection-validator.directive';
 
@@ -25,14 +25,7 @@ export class PersonGeneratorComponent {
 		female: new FormControl(true)
 	}, { validators: GenderSelectionValidator });
 
-
-	constructor() { }
-
-	log() {
-		console.log(this.generator.valid);
-		console.log(this.generator.value);
-		console.log(this.generator.hasError('noGenderSelected'));
-	}
+	constructor() {	}
 
 	generate(): void {
 		const value: GenerationConfig = this.generator.value;
@@ -40,5 +33,4 @@ export class PersonGeneratorComponent {
 			this.generateRequest.emit(value);
 		}
 	}
-
 }

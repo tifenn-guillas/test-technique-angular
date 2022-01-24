@@ -1,6 +1,5 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { PersonGeneratorComponent } from "./person-generator/person-generator.component";
 import { PersonListComponent } from "./person-list/person-list.component";
 
 const routes: Routes = [

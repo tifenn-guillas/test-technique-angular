@@ -1,9 +1,9 @@
 <app-person-generator (generateRequest)="generate($event)">
 </app-person-generator>
 
-<app-search *ngIf="dataSource | async" [dataSource]="dataSource | async" (criteria)="log($event)"></app-search>
+<app-search *ngIf="dataSource | async" [dataSource]="dataSource | async" (filteredData)="updateData($event)"></app-search>
 
-<table mat-table *ngIf="dataSource | async" [dataSource]="dataSource | async" class="mat-elevation-z8">
+<table mat-table *ngIf="dataSource | async" [dataSource]="getData() | async" class="mat-elevation-z8">
 
 	<ng-container matColumnDef="id">
 		<th mat-header-cell *matHeaderCellDef> # </th>

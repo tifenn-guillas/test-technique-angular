@@ -1,4 +1,3 @@
-
 export interface GenerationConfig {
 	count: number;
 	male: boolean;

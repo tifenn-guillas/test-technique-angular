@@ -1,4 +1,4 @@
-import { AbstractControl, FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { FormGroup, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export const GenderSelectionValidator: ValidatorFn = (control: FormGroup): ValidationErrors | null => {
 	const male = control.get('male');
