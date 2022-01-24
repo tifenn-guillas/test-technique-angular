@@ -18,4 +18,8 @@ export class PersonListComponent {
 	generate(config: GenerationConfig): void {
 		this.dataSource = this.personService.getPersons(config);
 	}
+
+	log(criteria: string): void {
+		console.log(criteria);
+	}
 }
