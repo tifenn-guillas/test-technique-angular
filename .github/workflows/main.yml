@@ -61,7 +61,8 @@ jobs:
                   context: .
                   file: Dockerfile
                   load: true
-                  build_args: APPLICATION_ENV=prod
+                  build-args: |
+                      APPLICATION_ENV=prod
 
             - name: Build dist
               run: |
@@ -74,7 +75,6 @@ jobs:
                       ${{ env.DOCKER_IMAGE }}:latest
                       ${{ env.DOCKER_IMAGE }}:${{ env.RELEASE_VERSION }}
                   push: true
-                  context: .
 
             - name: GitHub Pages
               uses: crazy-max/ghaction-github-pages@v2.5.0
