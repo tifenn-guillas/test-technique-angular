@@ -1,35 +1,36 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { FormBuilder, FormGroup, ValidationErrors, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
+import { Component, EventEmitter, Output } from "@angular/core";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+
 import { GenerationConfig } from "../generation-config";
+import { GenderSelectionValidator } from './gender-selection-validator.directive';
 
 @Component({
 	selector: "app-person-generator",
 	templateUrl: "./person-generator.component.html",
 	styleUrls: ["./person-generator.component.scss"]
 })
-export class PersonGeneratorComponent implements OnInit {
+export class PersonGeneratorComponent {
+	@Output() generateRequest = new EventEmitter<GenerationConfig>();
 
-	generator: FormGroup;
+	generator: FormGroup = new FormGroup({
+		count: new FormControl(1000, {
+			validators: [
+				Validators.required,
+				Validators.min(1),
+				Validators.max(1000)
+			],
+			updateOn: 'change'
+		}),
+		male: new FormControl(true),
+		female: new FormControl(true)
+	}, { validators: GenderSelectionValidator });
 
-	@Output()
-	private generateRequest = new EventEmitter<GenerationConfig>();
+	constructor() {	}
 
-	constructor(private formBuilder: FormBuilder) {
-	}
-
-	ngOnInit() {
-		this.generator = this.formBuilder.group({
-			count: [1000],
-			male: [true],
-			female: [true]
-		});
-	}
-
-	generate() {
+	generate(): void {
 		const value: GenerationConfig = this.generator.value;
-		if (this.generator.valid)
+		if (this.generator.valid) {
 			this.generateRequest.emit(value);
+		}
 	}
-
 }

@@ -1,5 +1,7 @@
-import { Component, OnInit } from "@angular/core";
-import { EMPTY, Observable } from "rxjs";
+import { Component } from "@angular/core";
+
+import { EMPTY, Observable, of } from "rxjs";
+
 import { GenerationConfig } from "../generation-config";
 import { Person } from "../person";
 import { PersonService } from "../person.service";
@@ -10,14 +12,24 @@ import { PersonService } from "../person.service";
 	styleUrls: ["./person-list.component.scss"]
 })
 export class PersonListComponent {
-
 	displayedColumns: string[] = ["id", "firstName", "lastName", "gender", "email"];
 	dataSource: Observable<Person[]> = EMPTY;
+	filteredData: Person[];
 
-	constructor(private personService: PersonService) {
+	constructor(private personService: PersonService) { }
+
+	generate(config: GenerationConfig): void {
+		this.dataSource = this.personService.getPersons(config);
 	}
 
-	generate(config: GenerationConfig) {
-		this.dataSource = this.personService.getPersons(config);
+	getData(): Observable<Person[]> {
+		if (!this.filteredData) {
+			return this.dataSource;
+		}
+		return of(this.filteredData);
+	}
+
+	updateData(filteredData: Person[]): void {
+		this.filteredData = filteredData;
 	}
 }

@@ -5,12 +5,22 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatInputModule } from "@angular/material/input";
 import { MatTableModule } from "@angular/material/table";
+import { Component, Input } from '@angular/core';
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
-import { PersonGeneratorComponent } from "../person-generator/person-generator.component";
 
 import { PersonListComponent } from "./person-list.component";
+import { TranslateGenderPipe } from './translate-gender.pipe';
+import { Person } from '../person';
 
 describe("PersonListComponent", () => {
+	@Component({ selector: 'app-person-generator', template: '' })
+	class PersonGeneratorStubComponent { }
+
+	@Component({ selector: 'app-search', template: '' })
+	class SearchStubComponent {
+		@Input() dataSource: Person[];
+	}
+
 	let component: PersonListComponent;
 	let fixture: ComponentFixture<PersonListComponent>;
 
@@ -18,7 +28,9 @@ describe("PersonListComponent", () => {
 		TestBed.configureTestingModule({
 			declarations: [
 				PersonListComponent,
-				PersonGeneratorComponent
+				PersonGeneratorStubComponent,
+				SearchStubComponent,
+				TranslateGenderPipe
 			],
 			imports: [
 				MatTableModule,
@@ -29,17 +41,14 @@ describe("PersonListComponent", () => {
 				HttpClientTestingModule,
 				NoopAnimationsModule
 			]
-		})
-			.compileComponents();
-	}));
+		}).compileComponents();
 
-	beforeEach(() => {
 		fixture = TestBed.createComponent(PersonListComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
-	});
+	}));
 
-	it("should create", () => {
+	it("should create the component", () => {
 		expect(component).toBeTruthy();
 	});
 });

@@ -1,34 +1,45 @@
 [![CI](https://github.com/tifenn-guillas/test-technique-angular/actions/workflows/main.yml/badge.svg)](https://github.com/tifenn-guillas/test-technique-angular/actions/workflows/main.yml)
 
-# Test technique de recrutement orienté Angular
+# Test technique Angular
 
-Ce test technique a pour objectif de valider les compétences du Candidat dans le domaine du front, Angular compris.
+## Démonstration
+L'application finale est visible à l'adresse suivante : http://tifenn-guillas.fr/test-technique-angular
 
-## Présentation de l'exercice
+## Lancer via Docker
+```bash
+docker run -it -p 4200:4200 tifennguillas/test-technique-angular ng serve --host=0.0.0.0 --disable-host-check --port 4200
+```
 
-Ce test se présente sous la forme d'une application simple, permettant de générer un ensemble d'identités de personnes. À partir d'une base applicative, vous devez comprendre le fonctionnement de l'application, compléter les parties demandées et vous assurer du fonctionnement de celle-ci (tests compris).
+## Installation en local
+Nécessite **Node 14 LTS**.
 
-## Consignes de l'exercice
+```bash
+yarn global add @angular/cli
+ng config -g cli.packageManager yarn
+ng config -g cli.warnings.versionMismatch false
+yarn
+ng serve --host=0.0.0.0 --disable-host-check --port 4200
+```
 
-1. S'assurer du fonctionnement des tests unitaires
-1. Dans la zone de génération, des critères de sélection sont affichés, implémenter le choix de ces critères pour la génération (valider la génération au moyen des tests unitaires)
-1. Dans le formulaire de critères, ne pas permettre :
-	* de saisir une valeur négative ou supérieure à 1000 ;
-	* de ne saisir aucun choix de genre.
-1. Dans le tableau de résultats, ne plus afficher Male / Female, mais Homme / Femme (par exemple en utilisant un `Pipe`).
-1. Le bouton « À propos » ne fonctionne pas, implémenter sa navigation.
-1. Si le coeur vous en dit, vous pouvez essayer d'améliorer l'ergonomie (UX et ou /UI) du site sur un aspect de votre choix.
+Ou via Docker :
+```bash
+make install
+make start
+make stop
+```
 
-_Il est demandé en outre que le code produit soit industriel, c'est-à-dire qu'il respecte les conventions de code et que les tests unitaires n'échouent pas.
-N'hésitez pas à utiliser vos bonnes pratiques habituelles ... à améliorer le code en terme de lisibilité et même en terme de performance.
+Allez sur la page http://localhost:4200/
 
-## Démarrage de l'application 
+## Lancer les tests
+Nécessite **Chromium** pour lancer les tests.
 
-Il est possible d'utiliser les scripts préconfigurés `npm` pour démarrer l'application et lancer les tests unitaires.
-* `yarn run build` pour compiler le projet
-* `yarn run test` pour lancer les tests unitaires
-* `yarn run start` pour démarrer l'application
-* `yarn run lint` pour s'assurer que le code respecte les conventions de code
+```bash
+ng test --no-watch
+```
 
-
-_Ce projet a été généré au moyen d'[Angular CLI](https://github.com/angular/angular-cli) version 7.2.1._
+Ou :
+```bash
+make start
+make test
+make stop
+```

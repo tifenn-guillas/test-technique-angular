@@ -7,6 +7,7 @@ import { MatInputModule } from "@angular/material/input";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
 import { PersonGeneratorComponent } from "./person-generator.component";
+import { GenerationConfig } from '../generation-config';
 
 describe("PersonGeneratorComponent", () => {
 	let component: PersonGeneratorComponent;
@@ -23,17 +24,21 @@ describe("PersonGeneratorComponent", () => {
 				ReactiveFormsModule,
 				NoopAnimationsModule
 			]
-		})
-			.compileComponents();
-	}));
+		}).compileComponents();
 
-	beforeEach(() => {
 		fixture = TestBed.createComponent(PersonGeneratorComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
+	}));
+
+	it("should create the component", () => {
+		expect(component).toBeTruthy();
 	});
 
-	it("should create", () => {
-		expect(component).toBeTruthy();
+	it("#generate() should emit event with generation config", () => {
+		component.generateRequest.subscribe((event: GenerationConfig) =>
+			expect(event).toEqual({ count: 1000, male: true, female: true })
+		);
+		component.generate();
 	});
 });

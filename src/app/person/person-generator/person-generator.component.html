@@ -1,4 +1,4 @@
-<form [formGroup]="generator" (ngSubmit)="generate($event)">
+<form [formGroup]="generator" (ngSubmit)="generate()">
 	<div class="title">
 		<h3>Critères de génération :</h3>
 		<div class="hint">
@@ -8,11 +8,20 @@
 
 	<mat-form-field class="count">
 		<input matInput type="number" placeholder="Nombre" formControlName="count">
+		<mat-error *ngIf="generator.controls.count.hasError('min') || generator.controls.count.hasError('max')">
+			Please enter a value between 1 and 1000
+		</mat-error>
+		<mat-error *ngIf="generator.controls.count.hasError('required')">
+			Please enter a value
+		</mat-error>
 	</mat-form-field>
 
 	<div class="gender">
 		<mat-checkbox class="Homme" formControlName="male">Homme</mat-checkbox>
 		<mat-checkbox class="Femme" formControlName="female">Femme</mat-checkbox>
+		<mat-error *ngIf="generator.hasError('noGenderSelected')">
+			Please select at least one gender
+		</mat-error>
 	</div>
 
 	<div class="actions">

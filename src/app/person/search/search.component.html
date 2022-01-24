@@ -1,0 +1,5 @@
+<mat-form-field>
+    <input #search type="text" matInput placeholder="Search" (keyup)="getFilteredData(search.value)">
+    <mat-icon matSuffix>search</mat-icon>
+    <mat-hint *ngIf="search.value && count">{{ count }} résultats</mat-hint>
+</mat-form-field>
