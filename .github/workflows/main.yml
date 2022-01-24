@@ -61,6 +61,7 @@ jobs:
                   context: .
                   file: Dockerfile
                   load: true
+                  push: true
                   build-args: |
                       APPLICATION_ENV=prod
 
@@ -68,13 +69,13 @@ jobs:
               run: |
                   docker run -v ${{ github.workspace }}/dist:/project/dist ${{ env.DOCKER_IMAGE }} bash -c 'ng build --prod --base-href /${{ env.BASE_HREF }}/'
 
-            - name: Push production image
-              uses: docker/build-push-action@v2
-              with:
-                  tags: |
-                      ${{ env.DOCKER_IMAGE }}:latest
-                      ${{ env.DOCKER_IMAGE }}:${{ env.RELEASE_VERSION }}
-                  push: true
+#            - name: Push production image
+#              uses: docker/build-push-action@v2
+#              with:
+#                  tags: |
+#                      ${{ env.DOCKER_IMAGE }}:latest
+#                      ${{ env.DOCKER_IMAGE }}:${{ env.RELEASE_VERSION }}
+#                  push: true
 
             - name: GitHub Pages
               uses: crazy-max/ghaction-github-pages@v2.5.0
