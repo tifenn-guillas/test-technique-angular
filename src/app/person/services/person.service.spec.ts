@@ -1,9 +1,8 @@
 import { HttpClientTestingModule, HttpTestingController } from "@angular/common/http/testing";
 import { TestBed } from "@angular/core/testing";
-import { Person } from "./person";
 
 import { PersonService } from "./person.service";
-import { GenerationConfig } from './generation-config';
+import { GenerationConfig, Person } from '../models';
 
 const PERSONS: Person[] = [
 	{

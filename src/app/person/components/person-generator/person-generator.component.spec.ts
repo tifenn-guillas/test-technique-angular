@@ -7,7 +7,7 @@ import { MatInputModule } from "@angular/material/input";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
 import { PersonGeneratorComponent } from "./person-generator.component";
-import { GenerationConfig } from '../generation-config';
+import { GenerationConfig } from '../../models';
 
 describe("PersonGeneratorComponent", () => {
 	let component: PersonGeneratorComponent;

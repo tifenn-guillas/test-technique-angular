@@ -10,7 +10,7 @@ import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
 import { PersonListComponent } from "./person-list.component";
 import { TranslateGenderPipe } from './translate-gender.pipe';
-import { Person } from '../person';
+import { Person } from '../../models';
 
 describe("PersonListComponent", () => {
 	@Component({ selector: 'app-person-generator', template: '' })

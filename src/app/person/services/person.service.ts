@@ -4,8 +4,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from 'rxjs/operators';
 
-import { GenerationConfig } from "./generation-config";
-import { Person } from "./person";
+import { GenerationConfig, Person } from "../models";
 
 @Injectable({
 	providedIn: "root"

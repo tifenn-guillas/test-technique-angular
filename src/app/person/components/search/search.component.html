@@ -1,0 +1,17 @@
+<div class="advanced-search">
+    <button (click)="displayAdvancedSearch = !displayAdvancedSearch" mat-raised-button>Recherche avancée</button>
+
+    <div *ngIf="displayAdvancedSearch" [formGroup]="advancedSearchInput">
+        <mat-form-field *ngFor="let key of displayedColumns">
+            <input type="text" matInput [formControlName]="key" placeholder="{{ key }}" (keyup)="getAdvancedFilteredData()">
+        </mat-form-field>
+    </div>
+
+    <button *ngIf="displayAdvancedSearch" (click)="resetSearch()" mat-raised-button>Supprimer</button>
+</div>
+
+<mat-form-field>
+    <input [formControl]="searchInput" type="text" matInput placeholder="Search" (keyup)="getFilteredData(searchInput.value)">
+    <mat-icon matSuffix>search</mat-icon>
+    <mat-hint *ngIf="searchInput.value">{{ count }} résultats</mat-hint>
+</mat-form-field>
