@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CodingTest</title>
+	<base href="/test-technique-angular/">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="./favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Github Pages hack to allow SPA refresh without receiving 404. -->
+	<script>
+		(function () {
+			// Retrieve the URL the user was trying to access when receiving the 404.
+			let redirect = sessionStorage.redirect;
+			// Remove the URL from sessionStorage.
+			delete sessionStorage.redirect;
+			// Check if we actually need to redirect.
+			if (redirect && redirect != location.href) {
+				// We need to redirect to the URL the user was trying to access.
+				history.replaceState(null, null, redirect);
+			}
+		})();
+	</script>
+	<!-- /Github Pages hack. -->
+<link rel="stylesheet" href="styles.4b3c143296f260b2c7a2.css"></head>
+<body>
+<app-root></app-root>
+<script src="runtime.5acf2db0113a4f642b0b.js" defer></script><script src="polyfills-es5.78252e78939fb5f0a3dc.js" nomodule defer></script><script src="polyfills.81e84529db4801d46f65.js" defer></script><script src="main.2ff619258684c26fe0f2.js" defer></script></body>
+</html>
