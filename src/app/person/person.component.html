@@ -1,0 +1,9 @@
+<app-person-generator (generateRequest)="generate($event)"></app-person-generator>
+
+<app-search *ngIf="dataSource | async"[dataSource]="dataSource | async"
+            [displayedColumns]="displayedColumns"
+            (emitFilteredData)="updateData($event)">
+</app-search>
+
+<app-person-list *ngIf="dataSource | async" [dataSource]="getData() | async" [displayedColumns]="displayedColumns"></app-person-list>
+

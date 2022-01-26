@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
-import { GenerationConfig } from "../generation-config";
+import { GenerationConfig } from "../../models";
 import { GenderSelectionValidator } from './gender-selection-validator.directive';
 
 @Component({

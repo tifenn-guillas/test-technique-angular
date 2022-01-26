@@ -7,15 +7,18 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatTableModule } from "@angular/material/table";
-import { PersonGeneratorComponent } from "./person-generator/person-generator.component";
-import { PersonListComponent } from "./person-list/person-list.component";
+
+import { PersonComponent } from "./person.component";
+import { PersonGeneratorComponent } from "./components/person-generator/person-generator.component";
+import { PersonListComponent } from "./components/person-list/person-list.component";
 import { PersonRoutingModule } from "./person-routing.module";
-import { PersonService } from "./person.service";
-import { TranslateGenderPipe } from './person-list/translate-gender.pipe';
-import { SearchComponent } from './search/search.component';
+import { PersonService } from "./services/person.service";
+import { TranslateGenderPipe } from './components/person-list/translate-gender.pipe';
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
 	declarations: [
+		PersonComponent,
 		PersonListComponent,
 		PersonGeneratorComponent,
 		SearchComponent,
